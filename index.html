@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Give generator</title> 
+
+	<link rel="icon" type="image/png" href="http://ezekielelin.com/favicon.png">
+
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<script src="give.js"></script>
+	<link rel="stylesheet" href="give.css">
+
+	<link rel="stylesheet" href="custom.css">
+</head>
+<body class="minecraft">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-xs-12">
+				<h4>
+					Give Command Generator for Minecraft 1.7+
+				</h4>
+			</div>
+		</div>
+		<div class="row-margin-top row-margin-bottom row">
+			<div class="col-md-12"><input placeholder="Player (ex Notch, @a, @p)" id="player" class="form-control"></div>
+		</div>
+		<hr>
+		<div class="row-margin-top row-margin-bottom row">
+			<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon">minecraft:</span>
+					<input type="text" id="item" class="form-control" placeholder="stone">
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="input-group">
+					<span class="input-group-addon">Damage <span id="repairCostQuestion" data-placement="top" title="Help" data-content="This is used to determine tool durability, and for things such as water height." class="glyphicon glyphicon-question-sign"></span></span>
+					<input id="dmg" type="text" value="0" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="input-group">
+					<span class="input-group-addon">Quantity <span id="repairCostQuestion" data-placement="top" title="Help" data-content="The number of items to give. Maximum is 64." class="glyphicon glyphicon-question-sign"></span></span>
+					<input id="qty" type="text" value="1" class="form-control">
+				</div>
+			</div>
+		</div>
+		<div class="row-margin-top row-margin-bottom row">
+			<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon">Repair Cost <span id="repairCostQuestion" data-placement="top" title="Help" data-content="This value will be added to the standard repair cost." class="glyphicon glyphicon-question-sign"></span></span>
+					<input id="repairCost" type="text" value="0" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon"><input type="checkbox" id="useItemName"> Item Name <span id="repairCostQuestion" data-placement="top" title="Help" data-content="This will replace the default name. If this matches the Lock NBT tag of a container, it can open that container." class="glyphicon glyphicon-question-sign"></span></span>
+					<input id="itmName" type="text" value="Check the checkbox to use a custom name" disabled class="form-control">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon">
+						<input id="invul" type="checkbox">
+					</span>
+					<div type="text" class="form-control">Unbreakable <span id="repairCostQuestion" data-placement="top" title="Help" data-content="This will make it so the item never takes damage." class="glyphicon glyphicon-question-sign"></span></div>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-md-2">
+				<h4>Flags (1.8)</h4>
+			</div>
+			<div class="col-md-2">
+				<button id="HFEnchantments" class="hfToggle btn btn-block btn-success">Enchantments</button>
+			</div>
+			<div class="col-md-2">
+				<button id="HFModifiers" class="hfToggle btn btn-block btn-success">Modifiers</button>
+			</div>
+			<div class="col-md-2">
+				<button id="HFUnbreakable" class="hfToggle btn btn-block btn-success">Unbreakable</button>
+			</div>
+			<div class="col-md-2">
+				<button id="HFCanDestroy" class="hfToggle btn btn-block btn-success">CanDestroy</button>
+			</div>
+			<div class="col-md-2">
+				<button id="HFCanPlace" class="hfToggle btn btn-block btn-success">CanPlace</button>
+			</div>
+		</div>
+		<hr>
+		<div class="row-margin-top row-margin-bottom row">
+			<div class="col-md-2">
+				<h4>Lore Text</h4>
+			</div>
+			<div class="col-md-7">
+				<input id="loreAdd" class="form-control">
+			</div>
+			<div class="col-md-3">
+				<button id="loreAddBtn" class="btn btn-block btn-success">Add Lore</button>
+			</div>
+		</div>
+		<div class="row-margin-top row-margin-bottom row">
+			<div class="col-md-2">
+				<h4>Can Destroy (1.8)</h4>
+			</div>
+			<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon">minecraft:</span>
+					<input type="text" id="canDestroy" class="form-control" placeholder="stone">
+				</div>
+			</div>
+			<div class="col-md-3">
+				<button id="destroyAdd" class="btn btn-block btn-success">
+					Add CanDestroy
+				</button>
+			</div>
+			<div class="col-md-3">
+				<button id="destroyRemove" class="btn btn-block btn-danger">
+					Remove CanDestroy
+				</button>
+			</div>
+		</div>
+		<div class="row-margin-top row-margin-bottom row">
+			<div class="col-md-2">
+				<h4>Can Place On (1.8)</h4>
+			</div>
+			<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon">minecraft:</span>
+					<input type="text" id="canPlaceOn" class="form-control" placeholder="stone">
+				</div>
+			</div>
+			<div class="col-md-3">
+				<button id="placeOnAdd" class="btn btn-block btn-success">
+					Add CanPlaceOn
+				</button>
+			</div>
+			<div class="col-md-3">
+				<button id="placeOnRemove" class="btn btn-block btn-danger">
+					Remove CanPlaceOn
+				</button>
+			</div>
+		</div>
+		<div class="row-margin-top row-margin-bottom row">
+			<div class="col-md-2">
+				<h4>Enchantment</h4>
+			</div>
+			<div class="col-md-2">
+				<select id="enchID" class="form-control">
+					<option value="0">Protection</option>
+					<option value="1">Fire Protection</option>
+					<option value="2">Feather Falling</option>
+					<option value="3">Blast Protection</option>
+					<option value="4">Projectile Protection</option>
+					<option value="5">Respiration</option>
+					<option value="6">Aqua Affinity</option>
+					<option value="7">Thorns</option>
+					<option value="16">Sharpness</option>
+					<option value="17">Smite</option>
+					<option value="18">Bane of Athropods</option>
+					<option value="19">Knockback</option>
+					<option value="20">Fire Aspect</option>
+					<option value="21">Looting</option>
+					<option value="32">Efficiency</option>
+					<option value="33">Silk Touch</option>
+					<option value="34">Unbreaking</option>
+					<option value="35">Fortune</option>
+					<option value="48">Power</option>
+					<option value="49">Punch</option>
+					<option value="50">Flame</option>
+					<option value="51">Infinity</option>
+					<option value="61">Luck of the Sea</option>
+					<option value="62">Lure</option>
+				</select>
+			</div>
+			<div class="col-md-2">
+				<input placeholder="Enchantment Level" id="enchQTY" class="form-control">
+			</div>
+			<div class="col-md-3">
+				<button id="enchAdd" class="btn btn-block btn-success">
+					Add Enchant
+				</button>
+			</div>
+			<div class="col-md-3">
+				<button id="enchRemove" class="btn btn-block btn-danger">
+					Remove Enchant
+				</button>
+			</div>
+		</div>
+		<div class="row-margin-top row-margin-bottom row">
+			<div class="col-md-2">
+				<h4>Stored Enchants</h4>
+			</div>
+			<div class="col-md-2">
+				<select id="enchStoreID" class="form-control">
+					<option value="0">Protection</option>
+					<option value="1">Fire Protection</option>
+					<option value="2">Feather Falling</option>
+					<option value="3">Blast Protection</option>
+					<option value="4">Projectile Protection</option>
+					<option value="5">Respiration</option>
+					<option value="6">Aqua Affinity</option>
+					<option value="7">Thorns</option>
+					<option value="16">Sharpness</option>
+					<option value="17">Smite</option>
+					<option value="18">Bane of Athropods</option>
+					<option value="19">Knockback</option>
+					<option value="20">Fire Aspect</option>
+					<option value="21">Looting</option>
+					<option value="32">Efficiency</option>
+					<option value="33">Silk Touch</option>
+					<option value="34">Unbreaking</option>
+					<option value="35">Fortune</option>
+					<option value="48">Power</option>
+					<option value="49">Punch</option>
+					<option value="50">Flame</option>
+					<option value="51">Infinity</option>
+					<option value="61">Luck of the Sea</option>
+					<option value="62">Lure</option>
+				</select>
+			</div>
+			<div class="col-md-2">
+				<input placeholder="Enchantment Level" id="enchStoreQTY" class="form-control">
+			</div>
+			<div class="col-md-3">
+				<button id="enchAddStore" class="btn btn-block btn-success">
+					Add Stored Enchant
+				</button>
+			</div>
+			<div class="col-md-3">
+				<button id="enchRemoveStore" class="btn btn-block btn-danger">
+					Remove Stored Enchant
+				</button>
+			</div>
+		</div>
+		<div class="row-margin-top row-margin-bottom row">
+			<div class="col-md-1">
+				<h4>Attribute</h4>
+			</div>
+			<div class="col-md-2">
+				<select id="attributeName" class="form-control">
+					<option value="generic.maxHealth">Max Health</option>
+					<option value="generic.followRange">Follow Range</option>
+					<option value="generic.knockbackResistance">Knockback Resistance</option>
+					<option value="generic.movementSpeed">Movement Speed</option>
+					<option value="generic.attackDamage">Attack Damage</option>
+				</select>
+			</div>
+			<div class="col-md-2">
+				<input type="text" placeholder="Amount" class="form-control" id="attributeAmount">
+			</div>
+			<div class="col-md-2">
+				<select id="attributeOp" class="form-control">
+					<option value="0">+/- amount</option>
+					<option value="1">+/- amount % (additive)</option>
+					<option value="2">+/- amount % (multiplicative)</option>
+				</select>
+			</div>
+			<div class="col-md-3">
+				<button id="attrAdd" class="btn btn-block btn-success">
+					Add Attribute
+				</button>
+			</div>
+			<div class="col-md-2">
+				<button id="attrRemove" class="btn btn-block btn-danger">
+					Remove Attribute
+				</button>
+			</div>
+		</div>
+		<hr>
+		<div class="row-margin-top row-margin-bottom row">
+			<div class="col-md-12">
+				<div class="input-group" id="previewcolorcontainer">
+					<span class="input-group-addon">Armor Color <input id="previewcolorcheckbox" type="checkbox"></span>
+					<input id="previewcolor" type="text" value="F5774A" class="color form-control">
+				</div>
+			</div>
+		</div>
+		<div class="row-margin-top row-margin-bottom row">
+			<div class="col-md-12">
+				<textarea id="out" class="form-control" style="margin-top:5px">
+
+				</textarea>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

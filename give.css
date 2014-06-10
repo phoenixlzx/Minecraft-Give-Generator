@@ -1,0 +1,8 @@
+#out {
+	max-height: 200px;
+	height:200px;
+	overflow-y: scroll;
+}
+.modal {
+	color: black;
+}
