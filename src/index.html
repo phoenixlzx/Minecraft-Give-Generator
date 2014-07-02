@@ -2,9 +2,7 @@
 <html>
 <head>
 	<title>Give generator</title> 
-
-	<link rel="icon" type="image/png" href="http://ezekielelin.com/favicon.png">
-
+	
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -14,19 +12,27 @@
 
 	<link rel="stylesheet" href="give.css">
 </head>
+
 <body class="minecraft">
 	<div class="container">
+	
 		<div class="row">
 			<div class="col-md-12 col-xs-12">
 				<h4>
 					Give Command Generator for Minecraft 1.7+
 				</h4>
+				<h6>
+					* For 1.8 and above
+				</h6>
 			</div>
 		</div>
+		
 		<div class="row-margin-top row-margin-bottom row">
 			<div class="col-md-12"><input placeholder="Player (ex Notch, @a, @p)" id="player" class="form-control"></div>
 		</div>
+		
 		<hr>
+		
 		<div class="row-margin-top row-margin-bottom row">
 			<div class="col-md-6">
 				<div class="input-group">
@@ -47,6 +53,7 @@
 				</div>
 			</div>
 		</div>
+		
 		<div class="row-margin-top row-margin-bottom row">
 			<div class="col-md-4">
 				<div class="input-group">
@@ -69,10 +76,12 @@
 				</div>
 			</div>
 		</div>
+		
 		<hr>
+		
 		<div class="row">
 			<div class="col-md-2">
-				<h4>Flags (1.8)</h4>
+				<h4>Hide Flags*</h4>
 			</div>
 			<div class="col-md-2">
 				<button id="HFEnchantments" class="hfToggle btn btn-block btn-success">Enchantments</button>
@@ -90,7 +99,9 @@
 				<button id="HFCanPlace" class="hfToggle btn btn-block btn-success">CanPlace</button>
 			</div>
 		</div>
+		
 		<hr>
+		
 		<div class="row-margin-top row-margin-bottom row">
 			<div class="col-md-2">
 				<h4>Lore Text</h4>
@@ -102,9 +113,10 @@
 				<button id="loreAddBtn" class="btn btn-block btn-success">Add Lore</button>
 			</div>
 		</div>
+		
 		<div class="row-margin-top row-margin-bottom row">
 			<div class="col-md-2">
-				<h4>Can Destroy (1.8)</h4>
+				<h4>Can Destroy*</h4>
 			</div>
 			<div class="col-md-4">
 				<div class="input-group">
@@ -123,9 +135,10 @@
 				</button>
 			</div>
 		</div>
+		
 		<div class="row-margin-top row-margin-bottom row">
 			<div class="col-md-2">
-				<h4>Can Place On (1.8)</h4>
+				<h4>Can Place On*</h4>
 			</div>
 			<div class="col-md-4">
 				<div class="input-group">
@@ -144,6 +157,7 @@
 				</button>
 			</div>
 		</div>
+		
 		<div class="row-margin-top row-margin-bottom row">
 			<div class="col-md-2">
 				<h4>Enchantment</h4>
@@ -190,6 +204,7 @@
 				</button>
 			</div>
 		</div>
+		
 		<div class="row-margin-top row-margin-bottom row">
 			<div class="col-md-2">
 				<h4>Stored Enchants</h4>
@@ -236,6 +251,7 @@
 				</button>
 			</div>
 		</div>
+		
 		<div class="row-margin-top row-margin-bottom row">
 			<div class="col-md-1">
 				<h4>Attribute</h4>
@@ -270,7 +286,9 @@
 				</button>
 			</div>
 		</div>
+		
 		<hr>
+		
 		<div class="row-margin-top row-margin-bottom row">
 			<div class="col-md-12">
 				<div class="input-group" id="previewcolorcontainer">
@@ -279,13 +297,15 @@
 				</div>
 			</div>
 		</div>
+		
 		<div class="row-margin-top row-margin-bottom row">
 			<div class="col-md-12">
 				<textarea id="out" class="form-control" style="margin-top:5px">
-
+					
 				</textarea>
 			</div>
 		</div>
+		
 	</div>
 </body>
 </html>
