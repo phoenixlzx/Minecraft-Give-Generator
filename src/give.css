@@ -3,9 +3,7 @@
 	background-image: url('mcbg.png');
 	color: #e0d0d0;
 }
-.minecraft .well {
-	color: black;
-}
+
 .row-margin-top {
 	margin-top:10px;
 }
@@ -19,22 +17,14 @@
 	position:relative;
 	margin-top:20px;
 }
+
 #body {
 	padding-bottom:60px;   /* Height of the footer */
 }
-#footer {
-	position:absolute;
-	bottom:22px;
-	width:100%;
-	height:82px;   /* Height of the footer */
-}
+
 /* give.css starts */
 #out {
 	max-height: 200px;
 	height:200px;
 	overflow-y: scroll;
 }
-.modal {
-	color: black;
-}
-
